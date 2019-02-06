@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "90db750b-388e-45a3-a198-12596eb57a6b",
+		"name": "FareFirst testcases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Proper JSON to that returns a proper output",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Alpha\",\n\t\"designation\": \"Tester\"\n}"
+				},
+				"url": {
+					"raw": "https://us-central1-pushtest-9ec67.cloudfunctions.net/helloWorld",
+					"protocol": "https",
+					"host": [
+						"us-central1-pushtest-9ec67",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"helloWorld"
+					]
+				},
+				"description": "set content-type to application/json\ngive proper data body"
+			},
+			"response": []
+		},
+		{
+			"name": "send malformed JSON in header",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"malformed\"\n}"
+				},
+				"url": {
+					"raw": "https://us-central1-pushtest-9ec67.cloudfunctions.net/helloWorld",
+					"protocol": "https",
+					"host": [
+						"us-central1-pushtest-9ec67",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"helloWorld"
+					]
+				},
+				"description": "set content-type to application/json\ngive malformed json data body"
+			},
+			"response": []
+		},
+		{
+			"name": "send unsupported media in header 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Alpha\",\n\t\"designation\": \"Tester\"\n}"
+				},
+				"url": {
+					"raw": "https://us-central1-pushtest-9ec67.cloudfunctions.net/helloWorld",
+					"protocol": "https",
+					"host": [
+						"us-central1-pushtest-9ec67",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"helloWorld"
+					]
+				},
+				"description": "set content-type to random \ngive proper json data body"
+			},
+			"response": []
+		}
+	]
+}
